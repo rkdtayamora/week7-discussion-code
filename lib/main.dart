@@ -1,19 +1,24 @@
-/*
-  Created by: Claizel Coubeili Cepe
-  Date: 27 October 2022
-  Description: Sample todo app with networking
-*/
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:week7_networking_discussion/providers/todo_provider.dart';
-import 'package:week7_networking_discussion/screens/todo_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+import 'package:tayamora_ex8/models/slambook_model.dart';
+import 'package:tayamora_ex8/providers/slambook_provider.dart';
+import 'package:tayamora_ex8/screens/formfield_page.dart';
+import 'package:tayamora_ex8/screens/friends_page.dart';
+import 'package:tayamora_ex8/screens/frienddata_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: ((context) => TodoListProvider())),
+        ChangeNotifierProvider(create: ((context) => SlambookListProvider())),
       ],
       child: MyApp(),
     ),
@@ -27,10 +32,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SimpleTodo',
+      title: 'Your Slambook',
       initialRoute: '/',
       routes: {
-        '/': (context) => const TodoPage(),
+        FriendsPage.routename: (context) => const FriendsPage(),
+        FormFile.routename: (context) => FormFile(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == FriendData.routename) {
+          final args = settings.arguments as Slambook;
+          return MaterialPageRoute(builder: (context) {
+            return FriendData(item: args);
+          });
+        }
+        return null;        
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

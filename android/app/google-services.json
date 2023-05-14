@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "387766619607",
+    "project_id": "cmsc23-b2l-tayamora",
+    "storage_bucket": "cmsc23-b2l-tayamora.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387766619607:android:2f92580e0f67ca101b0f92",
+        "android_client_info": {
+          "package_name": "com.example.week7_networking_discussion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387766619607-n5v6ueobgrcdme14vls8ro510sbs7it6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT962whM36IcTHlS0GYEuy7aCZYIal91Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387766619607-n5v6ueobgrcdme14vls8ro510sbs7it6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "387766619607-kqnift54d3fdlk2pht6pmqud9fve9g8k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.week7NetworkingDiscussion"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
